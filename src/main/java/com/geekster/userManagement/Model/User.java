@@ -15,6 +15,8 @@ public class User {
 
     private String userHandle;
 
+    private Type type;
+
     private String userAddress;
 
     private  String userContactNo;

@@ -24,6 +24,8 @@ public class UserController {
         return userService.inputUsers(u);
     }
 
+
+
     @GetMapping("users")  //getAllUser
     public List<User> getAllUsers()
     {
@@ -36,6 +38,8 @@ public class UserController {
     {
         return userService.getUser(iD);
     }
+
+
     //	updateUserInfo Phone and Address
     @PutMapping("user/{iD}/number/{num}")
     public String updateUserNumById(@PathVariable Integer iD,@PathVariable String num)
@@ -48,6 +52,8 @@ public class UserController {
     {
         return userService.updateUserAddress(iD,address);
     }
+
+
 
     //deleteUser
     @DeleteMapping("user/{iD}")
