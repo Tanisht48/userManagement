@@ -17,12 +17,6 @@ public class BeanMaker {
     @Bean
     public List<User> getUsers(){
 
-        User initUser = new User(4869,"Tanisht Gupta",Type.ADMIN,
-                "hells@gmail.com","919733316849","16-12-1998", LocalDate.now(), LocalTime.now());
-        List<User> initList = new ArrayList<>();
-        initList.add(initUser);
-
-
-        return initList;
+        return new ArrayList<>();
     }
 }

@@ -13,31 +13,30 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
-    @NotBlank
-    @Pattern(regexp = "\\d{4,}")
+
     private Integer userId;
 
     @NotBlank
-    @Pattern(regexp = "[a-zA-Z]+")
+    @Pattern(regexp = "^[a-zA-Z ]+$")
     private String userName;
 
     private Type type;
 
-    @Email
+    @Email(message = "Enter valid Email")
     private String userEmail;
 
     @Size(min = 12,max = 12)
-    @Pattern( regexp = "91[0-9]+")
+    @Pattern( regexp = "91[0-9]+",message = "Enter a Valid Phone Number")
     private  String userContactNo;
 
-    @Pattern( regexp = "^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(\\\\d{4})$")
+    @Pattern( regexp = "^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(\\d{4})$")
     private String dob;
 
-    @NotNull
-    private LocalDate date;
 
-    @NotNull
-    private LocalTime time;
+    private LocalDate date = LocalDate.now();
+
+
+    private LocalTime  time =  LocalTime.now();
 
 }
 /*
