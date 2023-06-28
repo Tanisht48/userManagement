@@ -3,6 +3,9 @@ package com.geekster.userManagement.Controller;
 import com.geekster.userManagement.Model.User;
 import com.geekster.userManagement.Services.UserService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -45,13 +48,14 @@ public class UserController {
 
     //	updateUserInfo Phone and Address
     @PutMapping("user/{iD}/number/{num}")
-    public String updateUserNumById(@PathVariable Integer iD,@PathVariable String num)
+    public String updateUserNumById(@PathVariable Integer iD,  @Size(min = 12,max = 12)
+    @Pattern( regexp = "91[0-9]+") @PathVariable String num)
     {
         return userService.updateUserNumber(iD,num);
     }
 
     @PutMapping("user/{iD}/address/{address}")
-    public String updateUserAddressById(@PathVariable Integer iD,@PathVariable String email)
+    public String updateUserAddressById(@PathVariable Integer iD,@Email @PathVariable String email)
     {
         return userService.updateUserEmailAddress(iD,email);
     }
