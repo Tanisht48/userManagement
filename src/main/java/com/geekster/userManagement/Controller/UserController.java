@@ -2,24 +2,27 @@ package com.geekster.userManagement.Controller;
 
 import com.geekster.userManagement.Model.User;
 import com.geekster.userManagement.Services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@Validated
 public class UserController {
     @Autowired
     UserService userService;
 
     //post or adduser or users
     @PostMapping("user")    //addUser
-    public String addUser(@RequestBody User u)
+    public String addUser(@Valid @RequestBody User u)
     {
         return userService.inputUser(u);
     }
     @PostMapping("users")
-    public String addUsers(@RequestBody List<User>u)
+    public String addUsers(@RequestBody @Valid List<User>u)
     {
         return userService.inputUsers(u);
     }
@@ -48,9 +51,9 @@ public class UserController {
     }
 
     @PutMapping("user/{iD}/address/{address}")
-    public String updateUserAddressById(@PathVariable Integer iD,@PathVariable String address)
+    public String updateUserAddressById(@PathVariable Integer iD,@PathVariable String email)
     {
-        return userService.updateUserAddress(iD,address);
+        return userService.updateUserEmailAddress(iD,email);
     }
 
 
