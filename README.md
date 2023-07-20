@@ -14,6 +14,7 @@ ___
 
 ---
 
+<p align="left">
 
 ## Dependencies
     SpringBoot Starter Web
@@ -22,12 +23,12 @@ ___
 
 ## Data Flow
   ### User
-      1.userId @Not null
-      2.userName  @NotBlank @Pattern(regexp = "^[a-zA-Z ]+$")
+      1.userId 
+      2.userName  
       3.Type 
       4.userEmail @Email
-      5.userContactNo  @Size(min = 12,max = 12) @Pattern( regexp = "91[0-9]+",message = "Enter a Valid Phone Number")
-      6.userDOB  @Pattern( regexp = "^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(\\d{4})$")
+      5.userContactNo 
+      6.userDOB
   ### Controller
        1. @PostMapping("user")
        2. @PostMapping("users")
@@ -43,6 +44,8 @@ ___
        4. add users
        5. update user contact info
        6. delete user
+</p>
+
 ## Data Structure
   ArrayList from the collection framework
 
